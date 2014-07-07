@@ -46,7 +46,7 @@ class UtterancesController < ApplicationController
   # PATCH/PUT /utterances/1.json
   def update
     respond_to do |format|
-      if @utterance.update(utterance_params)
+      if @utterance.update!(utterance_params)
         format.html { redirect_to @utterance, notice: 'Utterance was successfully updated.' }
         format.json { render :show, status: :ok, location: @utterance }
       else
@@ -94,6 +94,6 @@ class UtterancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def utterance_params
-      params.require(:utterance).permit(:user_id, :project_id)
+      params.require(:utterance).permit(:user_id, :project_id, :wav)
     end
 end

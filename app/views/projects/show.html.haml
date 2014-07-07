@@ -6,7 +6,7 @@
     %dl
       %dt.label.label-default= model_class.human_attribute_name(:utterances)
       %dd
-        %pre.prettyprint= utterance.id
+        %pre.prettyprint= link_to(utterance.id, utterance)
 
 .form-group
   = link_to t('.back', :default => t("helpers.links.back")), |
