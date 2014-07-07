@@ -1,6 +1,5 @@
-<h1>Editing utterance</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @utterance %> |
-<%= link_to 'Back', utterances_path %>
+<%- model_class = Utterance -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Utterance %></h1>
+</div>
+<%= render :partial => 'form' %>

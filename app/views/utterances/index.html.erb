@@ -1,27 +1,34 @@
-<h1>Listing utterances</h1>
-
-<table>
+<%- model_class = Utterance -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Utterance %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Project</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @utterances.each do |utterance| %>
       <tr>
-        <td><%= utterance.user %></td>
-        <td><%= utterance.project %></td>
-        <td><%= link_to 'Show', utterance %></td>
-        <td><%= link_to 'Edit', edit_utterance_path(utterance) %></td>
-        <td><%= link_to 'Destroy', utterance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= utterance.id %></td>
+        <td><%=l utterance.created_at, format: :long %></td>
+        <td>
+          <%= link_to utterance_path(utterance), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to utterance_path(utterance), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Utterance', new_utterance_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_utterance_path,
+            :class => 'btn btn-primary' %>
