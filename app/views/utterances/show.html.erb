@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @utterance.user %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @utterance.project %>
+</p>
+
+<%= link_to 'Edit', edit_utterance_path(@utterance) %> |
+<%= link_to 'Back', utterances_path %>
