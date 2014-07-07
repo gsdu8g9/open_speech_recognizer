@@ -1,4 +1,5 @@
 ActiveAdmin.register Project do
+  permit_params :title
 
   
   # See permitted parameters documentation:
