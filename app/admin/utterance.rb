@@ -1,4 +1,5 @@
 ActiveAdmin.register Utterance do
+  permit_params 
 
   
   # See permitted parameters documentation:
