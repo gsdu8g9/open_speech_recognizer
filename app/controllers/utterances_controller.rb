@@ -29,6 +29,7 @@ class UtterancesController < ApplicationController
   # POST /utterances.json
   def create
     @utterance = Utterance.new(utterance_params)
+    @utterance.user = current_user
 
     respond_to do |format|
       if @utterance.save
