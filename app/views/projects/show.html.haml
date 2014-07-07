@@ -1,12 +1,16 @@
 - model_class = Project
 .page-header
   %h1= t '.title', :default => @project.title
-.fieldset
-  - @project.utterances.each do |utterance|
-    %dl
-      %dt.label.label-default= model_class.human_attribute_name(:utterances)
-      %dd
-        %pre.prettyprint= link_to(utterance.id, utterance)
+
+.div
+  %label Utterance Count
+  = Utterance.count
+= form_for Utterance.new(project: @project) do |f|
+  = f.label :wav, "Upload wav:"
+  = f.file_field :wav, multiple: true, name: "utterance[wav]"
+  = f.submit
+    
+
 
 .form-group
   = link_to t('.back', :default => t("helpers.links.back")), |
