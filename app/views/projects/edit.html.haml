@@ -1,0 +1,4 @@
+- model_class = Project
+.page-header
+  %h1= t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Project
+= render :partial => 'form'

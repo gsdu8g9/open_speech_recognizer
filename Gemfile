@@ -45,6 +45,7 @@ group :development do
   gem 'pry-rails'
 end
 
+gem 'haml'
 gem 'binding_of_caller'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
@@ -66,6 +67,5 @@ end
 
 group :test do
   gem 'shoulda-matchers'
-  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
 end
