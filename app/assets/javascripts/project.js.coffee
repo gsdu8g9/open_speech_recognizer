@@ -1,13 +1,7 @@
 $(document).ready ->
   $('#fileupload').fileupload
-    dataType: 'json',
-    done: (e, data) ->
-      file = data.result
-      console.log(
-        data.textStatus,
-        file.id,
-      )
-      
+    dataType: 'json'
+    
     fail: (e, data) ->
       alert 'Upload failed'  
 
@@ -16,8 +10,12 @@ $(document).ready ->
       $("#progress .bar").css "width", progress + "%"
       $("#progress .label").text(data.loaded + "/" + data.total)
       if progress == 100
-        $("#progress .label").text("Done")
+        window.location.reload()
         $("#progress .bar").hide()
 
+    add: (e, data) ->
+      data.submit()
+      return
 
-
+    done: (e, data) ->
+      return

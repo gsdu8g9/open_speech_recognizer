@@ -61,7 +61,7 @@ class UtterancesController < ApplicationController
   def destroy
     @utterance.destroy
     respond_to do |format|
-      format.html { redirect_to utterances_url, notice: 'Utterance was successfully destroyed.' }
+      format.html { redirect_to project_url(@utterance.project), notice: 'Utterance was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
