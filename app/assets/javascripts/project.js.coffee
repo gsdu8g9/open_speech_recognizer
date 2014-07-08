@@ -7,6 +7,7 @@ $(document).ready ->
         data.textStatus,
         file.id,
       )
+      
     fail: (e, data) ->
       alert 'Upload failed'  
   })
