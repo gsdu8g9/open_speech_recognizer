@@ -6,10 +6,13 @@
   %label Utterances
   = render partial: 'project_utterances'
   
-= form_for Utterance.new, html: {id: "fileupload"} do |f|
-  = f.file_field :wav, multiple: true, name: "utterance[wav]"
-  = f.hidden_field :project_id, value: @project.id
-#progress  
+.div
+  = form_for Utterance.new, html: {id: "fileupload"} do |f|
+    = f.file_field :wav, multiple: true, name: "utterance[wav]"
+    = f.hidden_field :project_id, value: @project.id
+  #progress  
+    .label
+    .bar{style: "width: 0%;"}
 
 
 .form-group
