@@ -5,6 +5,14 @@ class Utterance < ActiveRecord::Base
 
   attr_accessor :transcription
 
-  has_attached_file :wav
+  has_attached_file :wav, :processors => [:silence_detection, :mfcc_extraction]
+
+  before_post_process :skip_for_invalid
+
+  def skip_for_invalid
+    true
+    #return false if the attarchment is invalid. 
+  end
+
   validates :wav, :attachment_content_type => { :content_type => ['audio/x-wav', 'audio/wav' ]}
 end
