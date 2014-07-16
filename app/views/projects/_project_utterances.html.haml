@@ -3,8 +3,8 @@
 - @project.utterances.each do |ut|
   .utterance
     %label 
-      = link_to ut.wav_file_name, ut.wav.url
-      %audio{controls: "controls", source: URI.join(request.url,ut.wav.url)}
+      = link_to ut.wav, ut.wav_url
+      %audio{controls: "controls", source: URI.join(request.url,ut.wav_url)}
       = link_to "destroy", ut, method: :delete
     
       
