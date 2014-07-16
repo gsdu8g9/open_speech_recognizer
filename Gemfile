@@ -41,7 +41,7 @@ gem 'jquery.fileupload-rails'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-gem 'paperclip'
+gem 'carrierwave'
 gem 'bundler'
 
 group :development do

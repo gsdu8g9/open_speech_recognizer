@@ -6,6 +6,8 @@ RSpec.describe Utterance, :type => :model do
       ut = Utterance.new
       ut.wav = File.new("spec/examples/si.wav")
       ut.save!
+
+      expect(File.exists? ut.wav.path).to be(true)
     end
   end
 end
